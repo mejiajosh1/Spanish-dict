@@ -1,0 +1,74 @@
+{
+  "name": "Spanishtools",
+  "version": "3.0.5",
+  "type": "app",
+  "dependencies": {
+    "hoodie-server": "^3.0.0",
+    "hoodie-plugin-appconfig": "^2.0.1",
+    "hoodie-plugin-email": "^1.0.0",
+    "hoodie-plugin-users": "^2.1.4"
+  },
+  "files": [
+    "www/"
+  ],
+  "engines": {
+    "node": ">=0.10.22"
+  },
+  "scripts": {
+    "start": "node node_modules/hoodie-server/bin/start"
+  },
+  "hoodie": {
+    "plugins": [
+      "hoodie-plugin-appconfig",
+      "hoodie-plugin-email",
+      "hoodie-plugin-users"
+    ]
+  },
+  "gitHead": "3fdb0a68d3ce0e4b6d693292a99284574db41b5f",
+  "description": "[![Dependency Status](https://david-dm.org/hoodiehq/my-first-hoodie.svg)](https://david-dm.org/hoodiehq/my-first-hoodie)",
+  "_id": "my-first-hoodie@3.0.5",
+  "_shasum": "93319e56783ecce872e2fba17eca554054b1b58d",
+  "_from": "my-first-hoodie@3.0.5",
+  "_npmVersion": "2.1.18",
+  "_nodeVersion": "0.10.32",
+  "_npmUser": {
+    "name": "gr2m",
+    "email": "gregor@martynus.net"
+  },
+  "maintainers": [
+    {
+      "name": "svnlto",
+      "email": "me@svenlito.com"
+    },
+    {
+      "name": "caolan",
+      "email": "caolan.mcmahon@gmail.com"
+    },
+    {
+      "name": "gr2m",
+      "email": "gregor@martynus.net"
+    },
+    {
+      "name": "jan",
+      "email": "jan@apache.org"
+    },
+    {
+      "name": "espy",
+      "email": "hello@alexfeyerke.com"
+    },
+    {
+      "name": "boennemann",
+      "email": "stephan@boennemann.me"
+    },
+    {
+      "name": "hoodiebot",
+      "email": "stephan@thehoodiefirm.com"
+    }
+  ],
+  "dist": {
+    "shasum": "93319e56783ecce872e2fba17eca554054b1b58d",
+    "tarball": "http://registry.npmjs.org/my-first-hoodie/-/my-first-hoodie-3.0.5.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/my-first-hoodie/-/my-first-hoodie-3.0.5.tgz"
+}
