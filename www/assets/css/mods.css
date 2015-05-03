@@ -1,0 +1,13 @@
+.input-append .btn.dropdown-toggle {
+  float: none;
+}
+.editing .hide-edit {
+  display: none;
+}
+.show-edit {
+  display: none;
+}
+
+.editing .show-edit {
+  display: inline-block;
+}
