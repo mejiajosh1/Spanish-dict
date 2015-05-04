@@ -1,0 +1,11 @@
+var url = "https://www.googleapis.com/language/translate/v2";
+var params = {
+  key: "INSERTYOURKEY",
+  source: 'en',
+  target: 'es',
+  q: "Translate me"
+};
+
+$.ajax(url, params, function (response) {
+  console.log(response.responseJSON);
+});
