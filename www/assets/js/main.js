@@ -21,14 +21,27 @@ function Todos($element) {
     var spanishword = $(this).parent().find(".spanishword").text();
     $(".new-englishword").val(englishword);
     $(".new-spanishword").val(spanishword);
-
-    return false;
+    return;
   });
 
   // Creates flashcard.
   $("#addcard").on('click', function(event) {
     var english_word = $('#englishword').val();
     var spanish_word = $('#spanishword').val();
+    var showError = function(msg){
+      $('#error1').html(msg).show();
+      setTimeOut(function(){
+        $('#error1').fadeout('fast');
+      },3000);
+    }
+    if(!spanish_word.length){
+      showError('Spanish word missing');
+      return;
+    }
+      else if (!english_word.length){
+        showError('English word missing');
+        return;
+      };
     hoodie.store.add('todo', {
       english: english_word,
       spanish: spanish_word,
@@ -37,14 +50,27 @@ function Todos($element) {
 
   // Saves changes.
   $el.on('click', 'button.savecard', function() {
-    var newenglish_word = $(this).parent().find('.new-englishword').val();
-    var newspanish_word = $(this).parent().find('.new-spanishword').val();
-    var id = $(this).parent().data('id');
-    hoodie.store.update('todo', id,  {
-      english: newenglish_word,
-      spanish: newspanish_word,
-    });
-    $(this).parent().removeClass('editing');
+    var panel_div = $(this).parent();
+    var newenglish_word = panel_div.find('.new-englishword').val();
+    var newspanish_word = panel_div.find('.new-spanishword').val();
+    var id = panel_div.data('id');
+
+    var showError = function(msg, selector){
+      panel_div.find(selector).html(msg);
+    }
+    if (!newenglish_word.length){
+      showError('English word missing', ".englishworderror");
+    };
+    if (!newspanish_word.length){
+      showError('Spanish word missing', ".spanishworderror");
+    }
+    if (newenglish_word.length && newspanish_word.length) {
+      hoodie.store.update('todo', id,  {
+        english: newenglish_word,
+        spanish: newspanish_word,
+      });
+      $(this).parent().removeClass('editing');
+    }
   });
 
 
@@ -58,7 +84,7 @@ function Todos($element) {
     return null;
   }
 
-  //Displays markup of flashcards.
+  //Displays makup of flashcards.
   function paint() {
     $el.html('');
     collection.sort(function(a, b) {
@@ -74,6 +100,8 @@ function Todos($element) {
           '<button class="removecard hide-edit" class="btn btn-primary">Remove Card</button>' +
           '<button class="editcard hide-edit" class="btn btn-primary">Edit Card</button>' +
           '<button class="savecard show-edit" class="btn btn-primary">Save Card</button>' +
+          '<div class = "englishworderror"></div>' +
+          '<div class = "spanishworderror"></div>' +
         '</div>'
       );
     }
